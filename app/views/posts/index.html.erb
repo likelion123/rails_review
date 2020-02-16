@@ -1,0 +1,21 @@
+<a href="<%= new_post_path %>">새 글 작성</a>
+<table>
+  <tr>
+    <th>id</th>
+    <th>제목</th>
+    <th>작성자</th>
+    <th>링크</th>
+  </tr>
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.id %></td>
+      <td><%= post.title %></td>
+      <td><%= post.user.name %></td>
+      <td>
+        <a href="<%= post_path(post) %>">확인</a>
+        <a href="<%= edit_post_path(post) %>">수정</a>
+        <a href="<%= post_path(post) %>" data-method="delete">삭제</a>
+      </td>
+    </tr>
+  <% end %>
+</table>
