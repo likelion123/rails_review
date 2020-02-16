@@ -15,7 +15,7 @@ class PostsController < ApplicationController
       flash[:alert] = "성공적으로 저장했습니다."
       redirect_to post_path(post)
     else
-      flash[:error] = "저장을 실패했습니다."
+      flash[:error] = post.errors.full_messages.join(", ")
       redirect_back(fallback_location: root_path)
     end
   end

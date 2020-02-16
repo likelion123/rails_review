@@ -11,5 +11,12 @@
 
   <body>
     <%= yield %>
+
+    <% if flash[:error].present? %>
+      <script type="text/javascript" charset="utf-8">
+
+        alert("<%= flash[:error].html_safe %>")
+      </script>
+    <% end %>
   </body>
 </html>
