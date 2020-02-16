@@ -8,6 +8,8 @@ class Post < ApplicationRecord
   after_create :set_create_comment
   after_save :set_save_comment
 
+  enum status: [:draft, :publish, :canceled]
+
   def set_create_comment
     self.comments.create(body: 'after create', user: self.user)
   end
